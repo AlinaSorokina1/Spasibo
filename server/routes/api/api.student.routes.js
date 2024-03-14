@@ -1,4 +1,16 @@
 const router = require("express").Router();
+const { Student } = require("../../db/models");
+
+router.get("/", async (req, res) => {
+  try {
+    const students = await Student.findAll();
+    if (students) {
+      res.status(200).json({ message: "success", students });
+    }
+  } catch ({ message }) {
+    res.status(500).json({ error: message });
+  }
+});
 
 router.post("/", async (req, res) => {
   let student;

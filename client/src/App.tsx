@@ -7,7 +7,6 @@ function App(): JSX.Element {
   return (
     <div className="App">
       <h2>hello</h2>
-      <ProfilePage />
     </div>
   );
 }

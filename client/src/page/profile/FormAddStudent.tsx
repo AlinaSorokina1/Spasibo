@@ -30,15 +30,13 @@ export const FormAddStudent = (): JSX.Element => {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          name=""
-          placeholder=""
+          placeholder="ФИО"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
         <input
           type="text"
-          name=""
-          placeholder=""
+          placeholder="Фаза"
           value={phase}
           onChange={(e) => setPhase(e.target.value)}
         />
