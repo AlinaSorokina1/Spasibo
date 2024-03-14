@@ -6,10 +6,12 @@ import type { Student } from '../../../app/type/student';
 
 export type StudentState = {
   students: Student[];
+  filteredStudent?: Student[]
 };
 
 export const initialState: StudentState = {
   students: [],
+  filteredStudent:[]
 };
 
 const studentReducer = (state: StudentState = initialState, action: Action): StudentState => {
@@ -18,6 +20,7 @@ const studentReducer = (state: StudentState = initialState, action: Action): Stu
       return {
         ...state,
         students: action.payload,
+        filteredStudent: action.payload
       };
     case 'students/add':
       return {
@@ -28,6 +31,13 @@ const studentReducer = (state: StudentState = initialState, action: Action): Stu
       return {
         ...state,
         students: state.students.filter((task) => task.id !== action.payload),
+      };
+    case 'students/search':
+      return {
+        ...state,
+        filteredStudent: state.students.filter((student) =>
+          student.name.toLowerCase().includes(action.payload.toLowerCase()),
+        ),
       };
 
     default:
