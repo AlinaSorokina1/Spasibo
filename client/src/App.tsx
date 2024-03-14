@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './App.css';
+import MainPage from './page/Main/MainPage'
 
 function App(): JSX.Element {
   return (
