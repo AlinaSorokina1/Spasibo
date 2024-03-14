@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
-import type { Student } from '../../app/type/student';
+import React from 'react';
 import StudentInfo from './StudentInfo';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../redux/store';
 
-type StudentsProps = {
-  students: Student[];
-};
 
-function MainPage({ students }: StudentsProps): JSX.Element {
-  // const [student, setStudent] = useState([]);
 
+function MainPage(): JSX.Element {
+
+const students = useSelector((store: RootState)=> store.students.students)
   return (
     <div className="MainPage">
       <div className="btns">
