@@ -23,7 +23,7 @@ router.post('/authorization', async (req, res) => {
       where: { id: user.id },
       attributes: ['login', 'id'],
     });
-
+console.log(user);
     const { accessToken, refreshToken } = generateTokens({ user });
 
     res
