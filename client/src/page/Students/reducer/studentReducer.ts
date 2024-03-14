@@ -19,10 +19,20 @@ const studentReducer = (state: StudentState = initialState, action: Action): Stu
         ...state,
         students: action.payload,
       };
+    case 'students/add':
+      return {
+        ...state,
+        students: [...state.students, action.payload],
+      };
+    case 'students/remove':
+      return {
+        ...state,
+        students: state.students.filter((task) => task.id !== action.payload),
+      };
 
     default:
       return state;
   }
 };
 
-export default studentReducer 
+export default studentReducer;

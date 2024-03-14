@@ -5,7 +5,7 @@ import { RootState } from '../../redux/store';
 
 
 
-function MainPage(): JSX.Element {
+function StudentsPage(): JSX.Element {
 
 const students = useSelector((store: RootState)=> store.students.students)
   return (
@@ -28,4 +28,4 @@ const students = useSelector((store: RootState)=> store.students.students)
   );
 }
 
-export default MainPage;
+export default StudentsPage;

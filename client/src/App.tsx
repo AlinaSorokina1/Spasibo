@@ -6,7 +6,11 @@ import { Route, Routes } from 'react-router-dom';
 import StudentsPage from './page/Students/StudentsPage';
 import type { Student } from './app/type/student';
 import { useAppDispatch } from './redux/store';
+
+import ProfilePage from './page/profile/ProfilePage';
+
 import AuthorizationPage from './page/Auth/AuthorizationPage';
+
 
 function App(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -25,6 +29,7 @@ function App(): JSX.Element {
       <h2>hello</h2>
       <Routes>
         <Route path="/students" element={<StudentsPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
         <Route path="/" element={<AuthorizationPage />} />
       </Routes>
     </div>
