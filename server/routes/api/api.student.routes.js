@@ -26,4 +26,16 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.delete("/:id/delete", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const result = await Student.destroy({ where: { id } });
+    if (result) {
+      res.status(201).json({ message: "success" });
+    }
+  } catch ({ message }) {
+    res.status(500).json({ error: message });
+  }
+});
+
 module.exports = router;
