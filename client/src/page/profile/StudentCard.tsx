@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Student } from './typeStudent';
 import ModalWindow from '../../ui/modal/ModalPage';
+import { useDispatch } from 'react-redux';
 
 type StudentCardProps = {
   student: Student;
@@ -8,11 +9,12 @@ type StudentCardProps = {
 
 export const StudentCard = ({ student }: StudentCardProps): JSX.Element => {
   const [isOpen, onClose] = useState(false);
+  const dispatch = useDispatch()
   const deleteItem = async (id: number) => {
-    const data = await (await fetch(`/api/students/${id}/delete`, { method: 'DELETE' })).json();
+    const data = await (await fetch(`/api/profile/${id}/delete`, { method: 'DELETE' })).json();
 
     if (data.message === 'success') {
-      alert('deleted');
+      dispatch({type:'students/remove', payload: id})
       onClose((prev) => !prev)
     }
   };

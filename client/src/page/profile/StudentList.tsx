@@ -1,20 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import StudentCard from './StudentCard';
-import { Student } from './typeStudent';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../redux/store';
 
 export const StudentList = (): JSX.Element => {
-  const [students, setStudents] = useState<Student[]>([]);
-
-  const loadStudents = async (): Promise<void> => {
-    const data = await (await fetch('/api/students')).json();
-    if (data.message === 'success') {
-      setStudents(data.students);
-    }
-  };
-
-  useEffect(() => {
-    loadStudents();
-  }, []);
+  const students = useSelector((store: RootState) => store.students.students);
 
   return (
     <div className="StudentList">

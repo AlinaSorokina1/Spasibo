@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { Student } from './typeStudent';
 
 export const FormAddStudent = (): JSX.Element => {
+   const dispatch=useDispatch()
   const [name, setName] = useState('');
   const [phase, setPhase] = useState('');
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
-    const data: { message: string } = await (
-      await fetch('/api/students', {
+    const data: { message: string , student:Student} = await (
+      await fetch('/api/profile', {
         method: 'POST',
         headers: {
           'Content-type': 'Application/json',
@@ -21,7 +24,9 @@ export const FormAddStudent = (): JSX.Element => {
     ).json();
 
     if (data.message === 'success') {
-      alert('ok');
+      dispatch({type:'students/add', payload:data.student})
+      setName('')
+      setPhase('')
     }
   };
 
