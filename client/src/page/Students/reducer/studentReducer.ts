@@ -38,20 +38,12 @@ const studentReducer = (state: StudentState = initialState, action: Action): Stu
         ...state,
         filteredStudent: state.students.filter((student) =>
           student.name.toLowerCase().includes(action.payload.toLowerCase()),
-
+        ),
+      };
     case 'student/update':
       return {
         ...state,
         students: state.students.map((student) =>
-          student.id === action.payload.id ? action.payload : student,
-
-        ),
-      };
-
-    case 'student/update':
-      return {
-        ...state,
-        filteredStudent: state.students.map((student) =>
           student.id === action.payload.id ? action.payload : student,
         ),
       };
