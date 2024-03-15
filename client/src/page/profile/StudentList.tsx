@@ -18,7 +18,7 @@ export const StudentList = (): JSX.Element => {
 
   return (
     <div className="StudentList">
-      <input
+      <input className='formSearch'
         type="text"
         placeholder="Введите имя"
         onChange={(e) => setSearchTerm(e.target.value)}

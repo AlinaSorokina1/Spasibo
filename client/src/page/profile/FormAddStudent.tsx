@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Student } from './typeStudent';
-import '../Students/StudentsPage.scss'
+import type { Student } from './typeStudent';
+import '../Students/StudentsPage.scss';
 
-export const FormAddStudent = (): JSX.Element => {
+export function FormAddStudent(): JSX.Element {
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [phase, setPhase] = useState('');
@@ -34,22 +34,26 @@ export const FormAddStudent = (): JSX.Element => {
   return (
     <div className="FormAddStudent">
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="ФИО"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Фаза"
-          value={phase}
-          onChange={(e) => setPhase(e.target.value)}
-        />
-        <button type="submit">Создать</button>
+        <div className="inputContainer">
+          <input
+            type="text"
+            placeholder="ФИО"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Фаза"
+            value={phase}
+            onChange={(e) => setPhase(e.target.value)}
+          />
+        </div>
+        <button className="btn-add" type="submit">
+          Добавить
+        </button>
       </form>
     </div>
   );
-};
+}
 
 export default FormAddStudent;
