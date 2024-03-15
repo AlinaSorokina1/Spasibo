@@ -1,4 +1,4 @@
-import type { Student, StudentId} from '../app/type/student';
+import type { Student, StudentId } from '../app/type/student';
 import type { User } from '../page/Auth/reducer/type';
 
 export type Action =
@@ -6,4 +6,7 @@ export type Action =
   | { type: 'auth/login'; payload: User }
   | { type: 'auth/logout' }
   | { type: 'auth/userCheck'; payload: User }
-  | { type: 'students/remove'; payload: StudentId}|{type:'students/add', payload:Student};
+  | { type: 'students/remove'; payload: StudentId }
+  | { type: 'students/add'; payload: Student }
+  | { type: 'students/search'; payload: string }
+  | { type: 'student/update'; payload: Student };

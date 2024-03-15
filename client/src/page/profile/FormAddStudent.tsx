@@ -3,13 +3,13 @@ import { useDispatch } from 'react-redux';
 import { Student } from './typeStudent';
 
 export const FormAddStudent = (): JSX.Element => {
-   const dispatch=useDispatch()
+  const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [phase, setPhase] = useState('');
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
-    const data: { message: string , student:Student} = await (
+    const data: { message: string; student: Student } = await (
       await fetch('/api/profile', {
         method: 'POST',
         headers: {
@@ -18,15 +18,15 @@ export const FormAddStudent = (): JSX.Element => {
         body: JSON.stringify({
           name,
           phase,
-          countThanks: 0
+          countThanks: 0,
         }),
       })
     ).json();
 
     if (data.message === 'success') {
-      dispatch({type:'students/add', payload:data.student})
-      setName('')
-      setPhase('')
+      dispatch({ type: 'students/add', payload: data.student });
+      setName('');
+      setPhase('');
     }
   };
 
