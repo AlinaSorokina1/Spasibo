@@ -13,7 +13,6 @@ import ProfilePage from './page/profile/ProfilePage';
 
 import AuthorizationPage from './page/Auth/AuthorizationPage';
 import type { User } from './page/Auth/reducer/type';
-import Footer from './ui/footer/Footer';
 
 function App(): JSX.Element {
   const user = useSelector((store: RootState) => store.auth.user);
@@ -51,7 +50,6 @@ function App(): JSX.Element {
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/" element={<AuthorizationPage />} />
       </Routes>
-      {user && <Footer />}
     </div>
   );
 }

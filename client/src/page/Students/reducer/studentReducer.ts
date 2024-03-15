@@ -27,7 +27,7 @@ const studentReducer = (state: StudentState = initialState, action: Action): Stu
     case 'students/add':
       return {
         ...state,
-        students: [...state.students, action.payload],
+        filteredStudent: [...state.students, action.payload],
       };
     case 'students/remove':
       return {
