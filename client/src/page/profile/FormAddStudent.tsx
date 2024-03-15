@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Student } from './typeStudent';
+import '../Students/StudentsPage.scss'
 
 export const FormAddStudent = (): JSX.Element => {
   const dispatch = useDispatch();
