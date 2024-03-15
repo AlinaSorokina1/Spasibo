@@ -42,7 +42,7 @@ export function StudentInfo({ student }: StudentInfoProps): JSX.Element {
 
   return (
     <div className="StudentInfo">
-      <h2>{student.name} / Phase: {student.phase}  </h2>
+      <h2>{student.name} / Фаза: {student.phase}  </h2>
       <button type="button" className='btn-plus' onClick={() => plusCount(student.id)}>
         +
       </button>

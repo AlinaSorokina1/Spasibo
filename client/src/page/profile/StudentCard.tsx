@@ -23,8 +23,7 @@ export function StudentCard({ student }: StudentCardProps): JSX.Element {
   return (
     <div className="StudentCard">
       <div className='studentsName'>
-      <h3>{student.name}</h3>
-      <h3>{`Фаза: ${student.phase}`}</h3>
+      <h2>{student.name} / Фаза: {student.phase}  </h2>
       </div>
       {/* <h3>{student.countThanks}</h3> */}
       <div className='btn-container'>

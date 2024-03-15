@@ -40,21 +40,21 @@ function AuthorizationPage(): JSX.Element {
   return (
     <div>
       <form className="authorization-form" onSubmit={onHandleSubmit}>
-        <input
+        <input className='auth'
           type="text"
           name="login"
           placeholder="login"
           value={login}
           onChange={(e) => setLogin(e.target.value)}
         />
-        <input
+        <input className='auth'
           type="password"
           name="password"
           placeholder="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">login</button>
+        <button  className='auth'type="submit">login</button>
       </form>
     </div>
   );
