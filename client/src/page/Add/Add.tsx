@@ -7,7 +7,7 @@ function Add(): JSX.Element {
   useEffect(() => {
     const timer = setTimeout(() => {
       onClose(true);
-    }, 5000000); 
+    }, 10000); 
 
     return () => clearTimeout(timer); 
   }, []);
