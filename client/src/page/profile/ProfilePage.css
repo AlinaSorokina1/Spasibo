@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap");
+
+* {
+  font-family: "IBM Plex Mono";
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.StudentCard {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid yellow;
+  border-radius: 20px;
+  margin: 5px;
+  padding: 5px;
+}
+
+.btn-update, .btn-delete {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+  "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  background-color: rgb(30, 173, 255);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  padding: 2px 2px;
+  font-size: 20px;
+  cursor: pointer;
+}
+i {
+  padding: 15px;
+  color: rgb(84, 47, 131);
+}
+button:hover {
+  background-color: rgb(81, 44, 148);
+}
+button:hover i {
+  color: white;
+}

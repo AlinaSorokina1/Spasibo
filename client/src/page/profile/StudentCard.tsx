@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { Student } from './typeStudent';
-import ModalWindow from '../../ui/modal/ModalPage';
 import { useDispatch } from 'react-redux';
+import type { Student } from './typeStudent';
+import ModalWindow from '../../ui/modal/ModalPage';
 import FormStudentUpdate from './FormStudentUpdate';
 
 type StudentCardProps = {
   student: Student;
 };
 
-export const StudentCard = ({ student }: StudentCardProps): JSX.Element => {
+export function StudentCard({ student }: StudentCardProps): JSX.Element {
   const [isOpen, onClose] = useState(false);
   const [isOpenUpdate, onCloseUpdate] = useState(false);
   const dispatch = useDispatch();
@@ -22,11 +22,14 @@ export const StudentCard = ({ student }: StudentCardProps): JSX.Element => {
   };
   return (
     <div className="StudentCard">
+      <div className='studentsName'>
       <h3>{student.name}</h3>
-      <h3>{student.phase}</h3>
-      <h3>{student.countThanks}</h3>
-      <button type="button" onClick={() => onCloseUpdate((prev) => !prev)}>
-        Изменить
+      <h3>{`Фаза: ${student.phase}`}</h3>
+      </div>
+      {/* <h3>{student.countThanks}</h3> */}
+      <div className='btn-container'>
+      <button className="btn-update" type="button" onClick={() => onCloseUpdate((prev) => !prev)}>
+        <i className="fa fa-pencil" />
       </button>
       <ModalWindow isOpen={isOpenUpdate} onClose={onCloseUpdate}>
         <FormStudentUpdate student={student} onClose={onCloseUpdate} />
@@ -34,8 +37,8 @@ export const StudentCard = ({ student }: StudentCardProps): JSX.Element => {
           Отмена
         </button>
       </ModalWindow>
-      <button type="button" onClick={() => onClose((prev) => !prev)}>
-        Удалить
+      <button className="btn-delete" type="button" onClick={() => onClose((prev) => !prev)}>
+        <i className="fa fa-trash" aria-hidden="true" />
       </button>
       <ModalWindow isOpen={isOpen} onClose={onClose}>
         <button type="button" onClick={() => deleteItem(student.id)}>
@@ -45,8 +48,9 @@ export const StudentCard = ({ student }: StudentCardProps): JSX.Element => {
           Отмена
         </button>
       </ModalWindow>
+      </div>
     </div>
   );
-};
+}
 
 export default StudentCard;
