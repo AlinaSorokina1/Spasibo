@@ -29,6 +29,11 @@ const studentReducer = (state: StudentState = initialState, action: Action): Stu
         ...state,
         students: state.students.filter((task) => task.id !== action.payload),
       };
+      case 'students/updateCount':
+      return {
+        ...state,
+        students: state.students.filter((task) => task.id !== action.payload),
+      };
 
     default:
       return state;
