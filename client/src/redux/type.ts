@@ -10,4 +10,5 @@ export type Action =
   | { type: 'students/add'; payload: Student }
   | { type: 'students/search'; payload: string }
   | { type: 'student/update'; payload: Student }
-  | { type: 'students/phase'; payload: number };
+  | { type: 'students/phase'; payload: number }
+  | { type: 'students/profile/load'; payload: Student[] };
