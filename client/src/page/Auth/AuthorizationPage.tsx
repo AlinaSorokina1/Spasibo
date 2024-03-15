@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../redux/store';
+import './Auth.scss'
 
 function AuthorizationPage(): JSX.Element {
   const [login, setLogin] = useState('');
