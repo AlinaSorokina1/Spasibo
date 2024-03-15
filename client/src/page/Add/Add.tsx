@@ -7,7 +7,7 @@ function Add(): JSX.Element {
   useEffect(() => {
     const timer = setTimeout(() => {
       onClose(true);
-    }, 3000000); 
+    }, 10000); 
 
     return () => clearTimeout(timer); 
   }, []);
@@ -22,7 +22,7 @@ function Add(): JSX.Element {
           height={300}
         />
         <button type="button" onClick={() => onClose((prev) => !prev)}>
-          Отмена
+          Спасибо
         </button>
       </ModalWindow>
     </div>
