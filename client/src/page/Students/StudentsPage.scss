@@ -1,0 +1,164 @@
+.MainPage {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.Footer {
+  position: sticky;
+  bottom: 0;
+
+  flex-basis: 100%;
+  padding: 15px;
+  margin-top: auto;
+}
+
+.students-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+  }
+
+  p {
+    margin-bottom: 0px;
+    color: var(--invert-primary-color);
+  }
+}
+.btn-minus {
+  width: 25px;
+  height: 25px;
+  border-radius: 10px;
+  color: rgb(255, 255, 255);
+  transition: 0.1s linear;
+  background: rgb(169, 0, 0);
+  margin-bottom: 20px;
+  text-align: center;
+  border: #cd0b0b;
+}
+.btn-minus:hover {
+  box-shadow:
+    0 0 30px #cd0b0b,
+    0 0 15px #cd0b0b,
+    0 0 15px #cd0b0b,
+    0 0 20px #cd0b0b;
+}
+.btn-plus {
+  width: 25px;
+  height: 25px;
+  border-radius: 10px;
+  color: rgb(255, 255, 255);
+  transition: 0.1s linear;
+  background: #2bcd0b;
+  margin-bottom: 0px;
+  text-align: center;
+  border: #2bcd0b;
+}
+.btn-plus:hover {
+  box-shadow:
+    0 0 30px #2bcd0b,
+    0 0 15px #2bcd0b,
+    0 0 15px #2bcd0b,
+    0 0 20px #2bcd0b;
+}
+.StudentInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+h2 {
+  margin: 4px;
+}
+.btn-phase {
+  width: 60px;
+  height: 30px;
+  border-radius: 10px;
+  border: 0px;
+  color: #00f5fd;
+  transition: 0.1s linear;
+  background: #5257c6;
+  margin-bottom: 4px;
+  padding-top: 5px;
+  margin-left: 8px;
+}
+.btn-phase:hover {
+  box-shadow:
+    0 0 30px #646cff,
+    0 0 15px #646cff,
+    0 0 15px #646cff,
+    0 0 20px #747bff;
+}
+.btn-phase2 {
+  width: 60px;
+  height: 30px;
+  border-radius: 10px;
+  border: 0px;
+  color: rgb(0, 245, 253);
+  transition: 0.1s linear;
+  background: #5257c6;
+  margin-bottom: 4px;
+  padding-top: 5px;
+  margin-left: 8px;
+}
+.btn-phase2:hover {
+  box-shadow:
+    0 0 30px #646cff,
+    0 0 15px #646cff,
+    0 0 15px #646cff,
+    0 0 20px #747bff;
+}
+.btn-phase3 {
+  width: 60px;
+  height: 30px;
+  border-radius: 10px;
+  border: 0px;
+  color: rgb(0, 245, 253);
+  transition: 0.1s linear;
+  background: #5257c6;
+  margin-bottom: 4px;
+  padding-top: 5px;
+  margin-left: 8px;
+}
+.btn-phase3:hover {
+  box-shadow:
+    0 0 30px #646cff,
+    0 0 15px #646cff,
+    0 0 15px #646cff,
+    0 0 20px #747bff;
+}
+.formSearch {
+  margin-top: 60px;
+  width: 300px;
+  height: 37px;
+  margin-bottom: 7px;
+  border-radius: 13px;
+  background-color: rgb(98, 31, 161);
+  border-color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
+}
+input::placeholder {
+  color: rgb(167, 167, 167);
+}
+
+.mark228 {
+  font-size: 22px;
+  color: rgb(98, 31, 161);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.mark228:hover {
+  color: rgb(0, 245, 253);
+  text-shadow:
+    0 0 30px #646cff,
+    0 0 15px #646cff,
+    0 0 15px #646cff,
+    0 0 20px #747bff;
+}
+.text228{
+  margin-top: 60px;
+}

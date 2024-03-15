@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
+
+* {
+  font-family: 'IBM Plex Mono';
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.FormAddStudent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 300px; 
+  margin-bottom: 20px; 
+ }
+
+ .inputContainer input {
+  margin-bottom: 10px;
+  width: 300px;
+  height: 37px;
+  margin-bottom: 7px;
+  border-radius: 13px;
+  background-color: rgb(231, 219, 243);
+  border-color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
+ }
+
+.StudentCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #5257c6;
+  border-radius: 20px;
+  margin: 5px;
+  padding: 5px;
+}
+
+.btn-update,
+.btn-delete,
+.btn-add {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva,
+    Verdana, sans-serif;
+  background-color: rgb(98, 31, 161);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  margin: 2px;
+}
+
+.btn-delete:hover {
+  box-shadow:
+    0 0 30px #5257c6,
+    0 0 15px #5257c6,
+    0 0 15px #5257c6,
+    0 0 20px #5257c6;
+}
+
+.btn-update:hover {
+  box-shadow:
+    0 0 30px #5257c6,
+    0 0 15px #5257c6,
+    0 0 15px #5257c6,
+    0 0 20px #5257c6;
+}
+
+.btn-add:hover {
+  box-shadow:
+    0 0 30px #5257c6,
+    0 0 15px #5257c6,
+    0 0 15px #5257c6,
+    0 0 20px #5257c6;
+}
+
+i {
+  padding: 15px;
+  color: rgb(0, 245, 253);
+}
+button:hover {
+  background-color: rgb(81, 44, 148);
+}
+button:hover i {
+  color: white;
+}
+
+.inputContainer {
+  display: flex;
+  align-items: center;
+}
