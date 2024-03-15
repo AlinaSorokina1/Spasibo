@@ -31,7 +31,7 @@ function StudentsPage(): JSX.Element {
         />
       </form>
       <div className="students-container">
-        {filteredStudent?.map((student) => <StudentInfo student={student} />)}
+        {filteredStudent?.map((student) => <StudentInfo student={student} key={student.id}/>)}
       </div>
     </div>
   );

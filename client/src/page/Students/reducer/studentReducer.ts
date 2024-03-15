@@ -43,7 +43,7 @@ const studentReducer = (state: StudentState = initialState, action: Action): Stu
     case 'student/update':
       return {
         ...state,
-        students: state.students.map((student) =>
+        filteredStudent: state.students.map((student) =>
           student.id === action.payload.id ? action.payload : student,
         ),
       };
