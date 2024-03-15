@@ -9,17 +9,9 @@ type StudentInfoProps = {
 export function StudentInfo({ student }: StudentInfoProps): JSX.Element {
   return (
     <div className="StudentInfo">
-      <h2>
-        {student.name}
-      </h2>
-      <h2>
-
-        Phase: {student.phase}
-
-      </h2>
-      <h2>
-      Spasibo: {student.countThanks}
-      </h2> 
+      <h2>{student.name}</h2>
+      <h2>Phase: {student.phase}</h2>
+      <h2>Spasibo: {student.countThanks}</h2>
       <button>+</button>
       <button>-</button>
     </div>
