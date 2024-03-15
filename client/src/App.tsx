@@ -6,13 +6,14 @@ import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import StudentsPage from './page/Students/StudentsPage';
 import type { Student } from './app/type/student';
-import { useAppDispatch } from './redux/store';
+import { RootState, useAppDispatch } from './redux/store';
 import Navbar from './page/Navbar/Navbar';
 import { useSelector } from 'react-redux';
 import ProfilePage from './page/profile/ProfilePage';
 
 import AuthorizationPage from './page/Auth/AuthorizationPage';
 import type { User } from './page/Auth/reducer/type';
+import Footer from './ui/footer/Footer';
 
 function App(): JSX.Element {
   const user = useSelector((store: RootState) => store.auth.user);
@@ -43,13 +44,13 @@ function App(): JSX.Element {
 
   return (
     <div className="App">
-      <h2>hello</h2>
       <Navbar />
       <Routes>
         <Route path="/students" element={<StudentsPage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/" element={<AuthorizationPage />} />
       </Routes>
+      {user && <Footer />}
     </div>
   );
 }
