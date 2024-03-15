@@ -17,12 +17,7 @@ function StudentsPage(): JSX.Element {
   }, [searchTerm]);
 
   return (
-    <div className="StudentsPage">
-      <div className="btns">
-        <button>1 ФАЗА</button>
-        <button>2 ФАЗА</button>
-        <button>3 ФАЗА</button>
-      </div>
+    <div className="MainPage">
       <form>
         <input
           type="text"
