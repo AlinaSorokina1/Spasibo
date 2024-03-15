@@ -17,10 +17,11 @@ import Footer from './ui/footer/Footer';
 
 function App(): JSX.Element {
   const user = useSelector((store: RootState) => store.auth.user);
+  const phase = useSelector((store: RootState) => store.students.phase);
   const dispatch = useAppDispatch();
 
-  const loadStudents = async (): Promise<void> => {
-    const data: { students: Student[] } = await (await fetch('/api/students')).json();
+  const loadStudents = async (phase: number): Promise<void> => {
+    const data: { students: Student[] } = await (await fetch(`/api/students/${phase}`)).json();
     dispatch({ type: 'students/load', payload: data.students });
   };
 
@@ -39,8 +40,8 @@ function App(): JSX.Element {
   }, []);
 
   useEffect(() => {
-    loadStudents();
-  }, []);
+    loadStudents(phase);
+  }, [phase]);
 
   return (
     <div className="App">
