@@ -7,7 +7,9 @@ function Add(): JSX.Element {
   useEffect(() => {
     const timer = setTimeout(() => {
       onClose(true);
-    }, 10000); 
+
+    }, 3000); 
+
 
     return () => clearTimeout(timer); 
   }, []);
@@ -18,8 +20,8 @@ function Add(): JSX.Element {
         <h1 id="ad-modal-title">От нашей команды желаем вам</h1>
         <img
           src="https://99px.ru/sstorage/86/2017/08/image_862708171321148377711.gif"
-          width={300}
-          height={300}
+          width={250}
+          height={250}
         />
         <button type="button" onClick={() => onClose((prev) => !prev)}>
           Спасибо
