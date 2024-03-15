@@ -19,7 +19,7 @@ router.get('/:phase', async (req, res) => {
     const { phase } = req.params;
     const students = await Student.findAll({
       where: { phase },
-      order: ['countThanks'],
+      order: [['countThanks', 'DESC']],
     });
 
     res.status(200).json({ students });
