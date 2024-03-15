@@ -6,16 +6,18 @@
   align-items: center;
 }
 .Footer {
-  display: flex;
-  justify-content: center;
- 
+  position: sticky;
+  bottom: 0;
+
+  flex-basis: 100%;
+  padding: 15px;
+  margin-top: auto;
 }
 
 .students-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
- 
 
   h3 {
     margin-top: 0;
@@ -73,13 +75,11 @@ h2 {
   margin: 4px;
 }
 .btn-phase {
-  // position: fixed;
-  // bottom: 0px; /* Расстояние от нижней границы экрана */
-  // right: 55%; /* Расстояние от правой границы экрана */
-  // z-index: 1000;
+  width: 60px;
+  height: 30px;
   border-radius: 10px;
   border: 0px;
-  color: rgb(0, 245, 253);
+  color: #00f5fd;
   transition: 0.1s linear;
   background: #5257c6;
   margin-bottom: 4px;
@@ -94,10 +94,8 @@ h2 {
     0 0 20px #747bff;
 }
 .btn-phase2 {
-  // position: fixed;
-  // bottom: 0px; /* Расстояние от нижней границы экрана */
-  // right: 50%; /* Расстояние от правой границы экрана */
-  // z-index: 1000;
+  width: 60px;
+  height: 30px;
   border-radius: 10px;
   border: 0px;
   color: rgb(0, 245, 253);
@@ -115,10 +113,8 @@ h2 {
     0 0 20px #747bff;
 }
 .btn-phase3 {
-  // position: fixed;
-  // bottom: 0px; /* Расстояние от нижней границы экрана */
-  // right: 45%; /* Расстояние от правой границы экрана */
-  // z-index: 1000;
+  width: 60px;
+  height: 30px;
   border-radius: 10px;
   border: 0px;
   color: rgb(0, 245, 253);
@@ -147,4 +143,22 @@ h2 {
 }
 input::placeholder {
   color: rgb(167, 167, 167);
+}
+
+.mark228 {
+  font-size: 22px;
+  color: rgb(98, 31, 161);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.mark228:hover {
+  color: rgb(0, 245, 253);
+  text-shadow:
+    0 0 30px #646cff,
+    0 0 15px #646cff,
+    0 0 15px #646cff,
+    0 0 20px #747bff;
+}
+.text228{
+  margin-top: 60px;
 }
