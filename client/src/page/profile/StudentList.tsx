@@ -1,16 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import StudentCard from './StudentCard';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 
 export const StudentList = (): JSX.Element => {
-  const students = useSelector((store: RootState) => store.students.students);
+  const filteredStudent = useSelector((store: RootState) => store.students.filteredStudent);
+  const [searchTerm, setSearchTerm] = useState('');
+  const dispatch = useDispatch();
+
+  const filterStudents = (searchText: string) => {
+    dispatch({ type: 'students/search', payload: searchText });
+  };
+
+  useEffect(() => {
+    filterStudents(searchTerm);
+  }, [searchTerm]);
 
   return (
     <div className="StudentList">
-      {students.map((student) => (
-        <StudentCard student={student} key={student.id} />
-      ))}
+      <input
+        type="text"
+        placeholder="Введите имя"
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
+
+      {filteredStudent?.map((student) => <StudentCard student={student} key={student.id} />)}
     </div>
   );
 };
