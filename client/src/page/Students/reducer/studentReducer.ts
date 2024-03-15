@@ -40,14 +40,20 @@ const studentReducer = (state: StudentState = initialState, action: Action): Stu
           student.name.toLowerCase().includes(action.payload.toLowerCase()),
         ),
       };
+
     case 'student/update':
       return {
         ...state,
-        students: state.students.map((student) =>
+        filteredStudent: state.students.map((student) =>
           student.id === action.payload.id ? action.payload : student,
         ),
       };
 
+    case 'students/phase':
+      return {
+        ...state,
+        filteredStudent: state.students.filter((student) => student.phase === action.payload),
+      };
     default:
       return state;
   }
