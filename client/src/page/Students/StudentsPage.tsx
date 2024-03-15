@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import StudentInfo from './StudentInfo';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../redux/store';
+import StudentInfo from './StudentInfo';
+import type { RootState } from '../../redux/store';
+// import Marks from '../404/404';
 
 function StudentsPage(): JSX.Element {
   const filteredStudent = useSelector((store: RootState) => store.students.filteredStudent);
@@ -33,6 +34,7 @@ function StudentsPage(): JSX.Element {
       <div className="students-container">
         {filteredStudent?.map((student) => <StudentInfo student={student} />)}
       </div>
+      <a href="/Mark">Спасибо Марку</a>
     </div>
   );
 }

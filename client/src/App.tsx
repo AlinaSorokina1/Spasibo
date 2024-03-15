@@ -13,6 +13,8 @@ import ProfilePage from './page/profile/ProfilePage';
 
 import AuthorizationPage from './page/Auth/AuthorizationPage';
 import type { User } from './page/Auth/reducer/type';
+import Add from './page/Add/Add';
+import Marks from './page/404/404';
 
 function App(): JSX.Element {
   const user = useSelector((store: RootState) => store.auth.user);
@@ -45,10 +47,12 @@ function App(): JSX.Element {
     <div className="App">
       <h2>hello</h2>
       <Navbar />
+      <Add/>
       <Routes>
         <Route path="/students" element={<StudentsPage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/" element={<AuthorizationPage />} />
+        <Route path="/Mark" element={<Marks />} />
       </Routes>
     </div>
   );

@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
 import React from 'react';
 
-// import './Navbar.scss';
 import { Link, NavLink, Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useAppDispatch, type RootState } from '../../redux/store';
@@ -10,10 +9,9 @@ function Navbar(): JSX.Element {
   const dispatch = useAppDispatch();
   const user = useSelector((store: RootState) => store.auth.user);
   console.log(user);
-  
+
   const logOut = async (): Promise<void> => {
     const data: { message: string } = await (await fetch('/api/auth/logout')).json();
-
 
     if (data.message === 'success') {
       dispatch({ type: 'auth/logout' });
@@ -34,6 +32,9 @@ function Navbar(): JSX.Element {
             <>
               <li>
                 <NavLink to="/students">Our students</NavLink>
+              </li>
+              <li>
+                {/* <Link onClick={}>Товарщи опаздавшие</Link> */}
               </li>
               <li>
                 <NavLink to="/profile">Change students</NavLink>
