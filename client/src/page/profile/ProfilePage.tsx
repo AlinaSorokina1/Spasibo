@@ -8,6 +8,9 @@ export const ProfilePage = (): JSX.Element => {
     <div className="ProfilePage">
       <h3>Добавить студента</h3>
       <FormAddStudent />
+
+      <input type="text" placeholder="Тут будет поиск" />
+
       <StudentList />
     </div>
   );
