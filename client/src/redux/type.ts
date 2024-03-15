@@ -8,4 +8,5 @@ export type Action =
   | { type: 'auth/userCheck'; payload: User }
   | { type: 'students/remove'; payload: StudentId }
   | { type: 'students/add'; payload: Student }
-  | { type: 'students/search'; payload: string };
+  | { type: 'students/search'; payload: string }
+  | { type: 'student/update'; payload: Student };
