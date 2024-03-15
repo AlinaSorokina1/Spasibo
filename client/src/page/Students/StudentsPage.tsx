@@ -1,10 +1,21 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
 import StudentInfo from './StudentInfo';
-import type { RootState } from '../../redux/store';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../redux/store';
 
 function StudentsPage(): JSX.Element {
-  const students = useSelector((store: RootState) => store.students.students);
+  const filteredStudent = useSelector((store: RootState) => store.students.filteredStudent);
+  const [searchTerm, setSearchTerm] = useState('');
+  const dispatch = useDispatch();
+
+  const filterStudents = (searchText: string) => {
+    dispatch({ type: 'students/search', payload: searchText });
+  };
+
+  useEffect(() => {
+    filterStudents(searchTerm);
+  }, [searchTerm]);
+
   return (
     <div className="StudentsPage">
       <div className="btns">
@@ -13,13 +24,14 @@ function StudentsPage(): JSX.Element {
         <button>3 ФАЗА</button>
       </div>
       <form>
-        <input type="text" placeholder="Начните вводить имя" />
-        <button>Найти</button>
+        <input
+          type="text"
+          placeholder="Введите имя"
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
       </form>
       <div className="students-container">
-        {students.map((student) => (
-          <StudentInfo student={student} />
-        ))}
+        {filteredStudent?.map((student) => <StudentInfo student={student} />)}
       </div>
     </div>
   );

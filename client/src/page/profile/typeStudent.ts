@@ -4,4 +4,3 @@ export type Student = {
   phase: number;
   countThanks: number;
 };
-export type StudentId = Student['id'];
