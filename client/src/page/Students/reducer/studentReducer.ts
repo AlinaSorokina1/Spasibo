@@ -46,6 +46,9 @@ const studentReducer = (state: StudentState = initialState, action: Action): Stu
     case 'student/update':
       return {
         ...state,
+        students:state.students.map((student) =>
+        student.id === action.payload.id ? action.payload : student,
+      ),
         filteredStudent: state.students.map((student) =>
           student.id === action.payload.id ? action.payload : student,
         ),
@@ -54,7 +57,7 @@ const studentReducer = (state: StudentState = initialState, action: Action): Stu
     case 'students/phase':
       return {
         ...state,
-        phase: action.payload
+        phase: action.payload,
       };
     default:
       return state;
