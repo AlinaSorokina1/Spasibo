@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Student } from './typeStudent';
 import ModalWindow from '../../ui/modal/ModalPage';
 import { useDispatch } from 'react-redux';
+import FormStudentUpdate from './FormStudentUpdate';
 
 type StudentCardProps = {
   student: Student;
@@ -9,13 +10,14 @@ type StudentCardProps = {
 
 export const StudentCard = ({ student }: StudentCardProps): JSX.Element => {
   const [isOpen, onClose] = useState(false);
-  const dispatch = useDispatch()
+  const [isOpenUpdate, onCloseUpdate] = useState(false);
+  const dispatch = useDispatch();
   const deleteItem = async (id: number) => {
     const data = await (await fetch(`/api/profile/${id}/delete`, { method: 'DELETE' })).json();
 
     if (data.message === 'success') {
-      dispatch({type:'students/remove', payload: id})
-      onClose((prev) => !prev)
+      dispatch({ type: 'students/remove', payload: id });
+      onClose((prev) => !prev);
     }
   };
   return (
@@ -23,7 +25,15 @@ export const StudentCard = ({ student }: StudentCardProps): JSX.Element => {
       <h3>{student.name}</h3>
       <h3>{student.phase}</h3>
       <h3>{student.countThanks}</h3>
-      <button>Изменить</button>
+      <button type="button" onClick={() => onCloseUpdate((prev) => !prev)}>
+        Изменить
+      </button>
+      <ModalWindow isOpen={isOpenUpdate} onClose={onCloseUpdate}>
+        <FormStudentUpdate student={student} onClose={onCloseUpdate} />
+        <button type="button" onClick={() => onCloseUpdate((prev) => !prev)}>
+          Отмена
+        </button>
+      </ModalWindow>
       <button type="button" onClick={() => onClose((prev) => !prev)}>
         Удалить
       </button>

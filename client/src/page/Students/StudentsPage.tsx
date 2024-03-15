@@ -3,11 +3,8 @@ import StudentInfo from './StudentInfo';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 
-
-
 function StudentsPage(): JSX.Element {
-
-const students = useSelector((store: RootState)=> store.students.students)
+  const students = useSelector((store: RootState) => store.students.students);
   return (
     <div className="MainPage">
       <div className="btns">

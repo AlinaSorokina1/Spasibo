@@ -29,6 +29,13 @@ const studentReducer = (state: StudentState = initialState, action: Action): Stu
         ...state,
         students: state.students.filter((task) => task.id !== action.payload),
       };
+    case 'student/update':
+      return {
+        ...state,
+        students: state.students.map((student) =>
+          student.id === action.payload.id ? action.payload : student,
+        ),
+      };
 
     default:
       return state;
