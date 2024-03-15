@@ -1,15 +1,12 @@
 import React from 'react';
-import StudentInfo from './StudentInfo';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../redux/store';
+import StudentInfo from './StudentInfo';
+import type { RootState } from '../../redux/store';
 
-
-
-function MainPage(): JSX.Element {
-
-const students = useSelector((store: RootState)=> store.students.students)
+function StudentsPage(): JSX.Element {
+  const students = useSelector((store: RootState) => store.students.students);
   return (
-    <div className="MainPage">
+    <div className="StudentsPage">
       <div className="btns">
         <button>1 ФАЗА</button>
         <button>2 ФАЗА</button>
@@ -28,4 +25,4 @@ const students = useSelector((store: RootState)=> store.students.students)
   );
 }
 
-export default MainPage;
+export default StudentsPage;

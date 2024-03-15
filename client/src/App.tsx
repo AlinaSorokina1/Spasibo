@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router-dom';
 import StudentsPage from './page/Students/StudentsPage';
 import type { Student } from './app/type/student';
 import { useAppDispatch } from './redux/store';
+import Navbar from './page/Navbar/Navbar';
 
 function App(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -22,6 +23,7 @@ function App(): JSX.Element {
   return (
     <div className="App">
       <h2>hello</h2>
+      {/* <Navbar /> */}
       <Routes>
         <Route path="/students" element={<StudentsPage />} />
       </Routes>
