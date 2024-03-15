@@ -15,7 +15,7 @@ function StudentsPage(): JSX.Element {
   useEffect(() => {
     filterStudents(searchTerm);
   }, [searchTerm]);
-
+ 
   return (
     <div className="MainPage">
       <form>
