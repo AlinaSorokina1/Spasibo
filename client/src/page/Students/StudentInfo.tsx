@@ -5,6 +5,7 @@
 /* eslint-disable react/button-has-type */
 import type { Student } from '../../app/type/student';
 import { useAppDispatch } from '../../redux/store';
+import './StudentsPage.scss';
 
 type StudentInfoProps = {
   student: Student;
@@ -41,13 +42,12 @@ export function StudentInfo({ student }: StudentInfoProps): JSX.Element {
 
   return (
     <div className="StudentInfo">
-      <h2>{student.name}</h2>
-      <h2>Phase: {student.phase}</h2>
-      <h2>Spasibo: {student.countThanks}</h2>
-      <button type="button" onClick={() => plusCount(student.id)}>
+      <h2>{student.name} / Phase: {student.phase}  </h2>
+      <button type="button" className='btn-plus' onClick={() => plusCount(student.id)}>
         +
       </button>
-      <button type="button" onClick={() => minusCount(student.id)}>
+      <h2>🙏 {student.countThanks}</h2>
+      <button type="button" className='btn-minus' onClick={() => minusCount(student.id)}>
         -
       </button>
     </div>

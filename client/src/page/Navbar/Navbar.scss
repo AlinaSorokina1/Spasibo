@@ -1,0 +1,32 @@
+.navbar {
+  &__container {
+    position: fixed;
+    width: 100%;
+    margin-top: 0px;
+    height: 50px;
+    background: var(--invert-bg-color);
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(98, 31, 161);
+    flex-direction: column;
+    align-items: center;
+  }
+  &__menu {
+    display: flex;
+    gap: 20px;
+  }
+  &__link {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  &__link:hover {
+    color: rgb(0, 245, 253);
+    text-shadow:
+      0 0 30px #646cff,
+      0 0 15px #646cff,
+      0 0 15px #646cff,
+      0 0 20px #747bff;
+  }
+}
