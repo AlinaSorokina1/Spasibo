@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import StudentInfo from './StudentInfo';
-import type { RootState } from '../../redux/store';
-// import Marks from '../404/404';
+import { RootState } from '../../redux/store';
+import Footer from '../../ui/footer/Footer';
 
 function StudentsPage(): JSX.Element {
   const filteredStudent = useSelector((store: RootState) => store.students.filteredStudent);
@@ -18,12 +17,7 @@ function StudentsPage(): JSX.Element {
   }, [searchTerm]);
 
   return (
-    <div className="StudentsPage">
-      <div className="btns">
-        <button>1 ФАЗА</button>
-        <button>2 ФАЗА</button>
-        <button>3 ФАЗА</button>
-      </div>
+    <div className="MainPage">
       <form>
         <input
           type="text"
@@ -32,9 +26,9 @@ function StudentsPage(): JSX.Element {
         />
       </form>
       <div className="students-container">
-        {filteredStudent?.map((student) => <StudentInfo student={student} />)}
+        {filteredStudent?.map((student) => <StudentInfo student={student} key={student.id}/>)}
       </div>
-      <a href="/Mark">Спасибо Марку</a>
+      <Footer/>
     </div>
   );
 }

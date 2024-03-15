@@ -9,4 +9,5 @@ export type Action =
   | { type: 'students/remove'; payload: StudentId }
   | { type: 'students/add'; payload: Student }
   | { type: 'students/search'; payload: string }
-  | { type: 'student/update'; payload: Student };
+  | { type: 'student/update'; payload: Student }
+  | { type: 'students/phase'; payload: number };

@@ -6,7 +6,7 @@ import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import StudentsPage from './page/Students/StudentsPage';
 import type { Student } from './app/type/student';
-import { useAppDispatch } from './redux/store';
+import { RootState, useAppDispatch } from './redux/store';
 import Navbar from './page/Navbar/Navbar';
 import { useSelector } from 'react-redux';
 import ProfilePage from './page/profile/ProfilePage';
@@ -18,10 +18,11 @@ import Marks from './page/404/404';
 
 function App(): JSX.Element {
   const user = useSelector((store: RootState) => store.auth.user);
+  const phase = useSelector((store: RootState) => store.students.phase);
   const dispatch = useAppDispatch();
 
-  const loadStudents = async (): Promise<void> => {
-    const data: { students: Student[] } = await (await fetch('/api/students')).json();
+  const loadStudents = async (phase: number): Promise<void> => {
+    const data: { students: Student[] } = await (await fetch(`/api/students/${phase}`)).json();
     dispatch({ type: 'students/load', payload: data.students });
   };
 
@@ -40,12 +41,11 @@ function App(): JSX.Element {
   }, []);
 
   useEffect(() => {
-    loadStudents();
-  }, []);
+    loadStudents(phase);
+  }, [phase]);
 
   return (
     <div className="App">
-      <h2>hello</h2>
       <Navbar />
       <Add/>
       <Routes>

@@ -5,3 +5,4 @@ export type Student = {
   countThanks: number;
 };
 export type StudentId = Student['id'];
+export type StudentPhase = Student['phase']
