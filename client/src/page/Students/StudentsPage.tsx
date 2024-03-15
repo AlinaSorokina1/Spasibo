@@ -4,6 +4,8 @@ import type { RootState } from '../../redux/store';
 import Footer from '../../ui/footer/Footer';
 import StudentInfo from './StudentInfo';
 import './StudentsPage.scss';
+import Marks from '../404/404';
+import { Link } from 'react-router-dom';
 
 function StudentsPage(): JSX.Element {
   const filteredStudent = useSelector((store: RootState) => store.students.filteredStudent);
@@ -21,7 +23,8 @@ function StudentsPage(): JSX.Element {
   return (
     <div className="MainPage">
       <form>
-        <input className='formSearch'
+        <input
+          className="formSearch"
           type="text"
           placeholder="Введите имя"
           onChange={(e) => setSearchTerm(e.target.value)}
@@ -30,6 +33,7 @@ function StudentsPage(): JSX.Element {
       <div className="students-container">
         {filteredStudent?.map((student) => <StudentInfo student={student} key={student.id} />)}
       </div>
+      <Link className='mark228' to="/Mark">СПАСИБО МАРКУ</Link>
       <Footer />
     </div>
   );
