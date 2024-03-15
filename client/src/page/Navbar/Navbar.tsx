@@ -8,28 +8,30 @@ import { useAppDispatch, type RootState } from '../../redux/store';
 
 function Navbar(): JSX.Element {
   const dispatch = useAppDispatch();
-//   const user = useSelector((store: RootState) => store.auth.user);
-//   const logOut = async (): Promise<void> => {
-//     const data: { message: string } = await (await fetch('/api/auth/logout')).json();
+  const user = useSelector((store: RootState) => store.auth.user);
+  console.log(user);
+  
+  const logOut = async (): Promise<void> => {
+    const data: { message: string } = await (await fetch('/api/auth/logout')).json();
 
-//     console.log(data);
 
-//     if (data.message === 'success') {
-//       dispatch({ type: 'auth/logout' });
-//     }
-//   };
+    if (data.message === 'success') {
+      dispatch({ type: 'auth/logout' });
+    }
+  };
 
-//   console.log(user);
+  console.log(user);
 
   return (
     <>
       <div className="navbar__container">
         <div className="navbar__menu">
-
-              <li>
-                <NavLink to="/">Log-in</NavLink>
-              </li>
-
+          {!user ? (
+            <li>
+              <NavLink to="/">Log-in</NavLink>
+            </li>
+          ) : (
+            <>
               <li>
                 <NavLink to="/students">Our students</NavLink>
               </li>
@@ -41,7 +43,8 @@ function Navbar(): JSX.Element {
                   logout{' '}
                 </Link>
               </li>
-
+            </>
+          )}
         </div>
       </div>
       <Outlet />
@@ -50,3 +53,18 @@ function Navbar(): JSX.Element {
 }
 
 export default Navbar;
+
+{
+  /* <li>
+          <NavLink to="/">Log-in</NavLink>
+        </li>
+        <li>
+          <NavLink to="/students">Our students</NavLink>
+        </li>
+        <li>
+          <NavLink to="/profile">Change students</NavLink>
+        </li>
+        <li>
+          <NavLink to="/">logout</NavLink>
+        </li> */
+}

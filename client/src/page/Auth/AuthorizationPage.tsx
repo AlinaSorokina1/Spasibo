@@ -4,17 +4,17 @@ import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../redux/store';
 
 function AuthorizationPage(): JSX.Element {
- const [login, setLogin] = useState('');
- const [password, setPassword] = useState('');
- const dispatch = useAppDispatch();
- const navigate = useNavigate();
+  const [login, setLogin] = useState('');
+  const [password, setPassword] = useState('');
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
- useEffect(() => {
+  useEffect(() => {
     // Здесь можно выполнить проверку авторизации пользователя, если это необходимо
     // Например, проверка наличия токена в localStorage и перенаправление на главную страницу, если пользователь уже авторизован
- }, []);
+  }, []);
 
- const onHandleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
+  const onHandleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
 
     const response = await fetch('/api/auth/authorization', {
@@ -26,18 +26,19 @@ function AuthorizationPage(): JSX.Element {
     });
 
     const data = await response.json();
+    console.log(data);
 
     if (data.message === 'success') {
-        dispatch({ type: 'auth/registration', payload: data.user });
-        navigate('/students');
-     
-    // alert ('все успешно')
-    }
- };
+      dispatch({ type: 'auth/login', payload: data.user });
+      navigate('/students');
 
- return (
+      // alert ('все успешно')
+    }
+  };
+
+  return (
     <div>
-      <form className='authorization-form' onSubmit={onHandleSubmit}>
+      <form className="authorization-form" onSubmit={onHandleSubmit}>
         <input
           type="text"
           name="login"
@@ -55,7 +56,7 @@ function AuthorizationPage(): JSX.Element {
         <button type="submit">login</button>
       </form>
     </div>
- );
+  );
 }
 
 export default AuthorizationPage;
